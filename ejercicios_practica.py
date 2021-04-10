@@ -11,15 +11,17 @@ Programa creado para poner a prueba los conocimientos
 adquiridos durante la clase
 '''
 
-__author__ = "Inove Coding School"
-__email__ = "alumnos@inove.com.ar"
+__author__ = "Marcos_Ludueña"
+__email__ = "marcosluduea89@gmail.com"
 __version__ = "1.2"
 
 import random
 
 
 def imprimir_nombre(nombre, apellido):
-    pass
+    print("El nombre y apellido es el siguiente:")
+    print(nombre, apellido,"\n")
+    
     # En este lugar debe colocar el "print" e imprimir
     # en pantalla el nombre y apellido que vienen por parámetro
     # print(.....)
@@ -29,7 +31,44 @@ def promedio(numeros):
     # Alumno:
     # 1) calcule el promedio
     # 2) use "return" para retornar ese valor
-    pass  # Cuando termine de implementar está función borrar "pass"
+    # Cuando termine de implementar está función borrar "pass"
+    sumatoria_numeros = 0
+    cantidad_numeros = 0
+
+    for i in numeros:
+        sumatoria_numeros += i
+        cantidad_numeros += 1
+    promedio = sumatoria_numeros / cantidad_numeros
+    print("El promedio es el siguiente:")
+    return promedio
+
+
+def ordenar(numeros):
+    for a in range(len(numeros)): # iteracion con un rango de numeros(range) establecido por(tamamaño de la lista) en variable a 
+        for b in range(len(numeros)): # idem anterior pero sobre cada indice a ,con una variable b, un total 25 iteraciones
+            if numeros[a] > numeros[b]: # para comparar hasta que algun elemento a sea mayor al b y asi ordenar de mayor a menor
+                tmp =numeros[a]     # guardamos el mayor numero en variable cualquiera
+                numeros[a] = numeros [b] # reemplazo el numero mas grande en la posicion de la ultima iteracion (para comparar)
+                numeros[b] = tmp #el mayor numero nuevo ocupa la primera posicion
+    print ("La lista ordenada de mayor a menor es la siguiente:")
+    return numeros
+
+
+def lista_aleatoria (inicio, fin, cantidad):
+    random_list = []
+    for i in range(cantidad):
+        numero = random.randrange(inicio, fin+1)
+        random_list.append(numero)
+    
+    return random_list
+
+        
+def contar (lista, num_a_contar):
+    contador=0
+    for i in range(len(lista)):
+        if lista[i] == num_a_contar:
+            contador +=1
+    return contador
 
 
 def ej1():
@@ -39,7 +78,7 @@ def ej1():
     # Esa función ya se encuentra a medio armar al principio de este archivo.
     # Debe cumpletar la función para que se imprima en pantalla su nombre y apellido
     # Debe invocar a la función como:
-    imprimir_nombre('mi_nombre', 'mi_apellido')
+    imprimir_nombre('Marcos','Ludueña')
 
     # Reemplazar por su nombre y apellido los textos
 
@@ -78,9 +117,10 @@ def ej2():
 
     # Llamar a la función en este lugar y capturar el valor del retorno
     # promedio_re
-
+    promedio_re = promedio(numeros)
+    print(promedio_re,"\n")
     # Luego imprimir en pantalla el valor resultante, tal que:
-
+    
 
 def ej3():
     # Ejercicios de listas y métodos
@@ -101,6 +141,8 @@ def ej3():
     # lista_ordenada = ordenar(numeros)
     # Imprimir en pantalla "lista_ordenada" que tendrá
     # los valores retornado por la función ordenar
+    lista_ordenada = ordenar(numeros)
+    print(lista_ordenada,"\n")
 
 
 def ej4():
@@ -139,6 +181,9 @@ def ej4():
     # Invocar lista_aleatoria
     # mi_lista_aleatorio = lista_aleatoria(inicio, fin, cantidad)
     # print(mi_lista_aleatorio)
+    mi_lista_aleatorio = lista_aleatoria(inicio, fin, cantidad)
+    print ("La lista random es la siguiente:")
+    print(mi_lista_aleatorio,"\n")
 
 
 def ej5():
@@ -159,15 +204,30 @@ def ej5():
     '''
 
     # Por ejemplo creo una lista de 5 elemtnos
-    # lista_numeros = lista_aleatoria(...,...,cantidad_numeros)
+    inicio = 1
+    fin = 9
+    numero_a_consultar = 3
+
+    lista_numeros = lista_aleatoria(inicio,fin,cantidad_numeros)
+    print("Lista de numeros:")
+    print(lista_numeros)
     # Luego quiero averiguar cuantas veces se repite el numero 3
-    # cantidad_tres = contar(lista_numeros, 3)
+    cantidad_tres = contar(lista_numeros, 3)
+    print("Numero de veces que se repite {}: ".format(numero_a_consultar))
+    print(cantidad_tres)
 
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
     ej1()
-    # ej2()
-    # ej3()
-    # ej4()
-    # ej5()
+    ej2()
+    ej3()
+    ej4()
+    ej5()
+
+
+
+ 
+
+
+ 
